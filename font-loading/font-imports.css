@@ -1,0 +1,50 @@
+@font-face {
+
+  /*
+   * 'font-family' is the  name that will be used to reference the font.
+   */
+  font-family: 'Font Family Name';  
+
+  /*
+   * Font style for which this font-file should be used
+   */
+  font-style: normal;  
+
+  /*
+   * Font weight for which this font-file should be used
+   */
+  font-weight: 400; 
+
+  /*
+   * comma-separated list of sources for this font. (should be in this order).
+   * local('...') tells the machine to use it's local font by the specified name
+   * if it is available.  Each available format should include a url() path to 
+   * the font file as well as a format() hint, which allows the browser to 
+   * easily determine if it support (and should download and use) the specified
+   * file or continue looking for a supported format lower in the list.
+   */
+  src: local('Font Family Name'), 
+
+    /* woff2 is the prefered format */
+    url('/path/to/font.woff2') format('woff2'), 
+
+    /* if the browser does not support woff2, woff is prefered, */
+    url('/path/to/font.woff') format('woff'), 
+
+    /* ttf is prefered if the browser does not support woff2 or woff */
+    url('/path/to/font.ttf') format('ttf'), 
+
+    /* If woff2, woff, ant ttf are not supported, use EOT (old IE) */
+    url('/path/to/font.eot') format('eot');
+
+  /*
+   * Specify the range of unicode characters to download.
+   * This allows us to only download the required subset of the font that will
+   * be used and thus save bandwith.  
+   * The example bellow is for the Latin character set.
+   * This is not supported by all browsers (specifically IE < 9).
+   * For more details, see:
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range
+   */
+  unicode-range: U+000-5FF; 
+}
